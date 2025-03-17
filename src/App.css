@@ -61,19 +61,88 @@
 .wrapper {
   min-height: 100vh;
   background-color: var(--bg-primary);
+  background-image: url('.././public/images/WhatsApp\ Image\ 2025-03-17\ at\ 23.00.04_9433d220.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-top: 2rem;
+  position: relative;
+}
+
+/* Add an overlay to ensure text remains readable */
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  z-index: 0;
+}
+
+/* Ensure content appears above the overlay */
+.App, .theme-switch {
+  position: relative;
+  z-index: 1;
 }
 
 .App {
   width: 100%;
   max-width: 1200px;
-  background-color: var(--bg-primary);
+  background-color: rgba(28, 37, 51, 0.5); /* Transparent background */
   border-radius: 1rem;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   border: 2px solid var(--border-color);
+  backdrop-filter: blur(1px); /* Optional: blur effect */
+}
+
+/* Transparent background for light mode */
+.light-mode .App {
+  background-color: rgba(248, 250, 252, 0.5);
+}
+
+/* Transparent background for error details */
+.error-details {
+  background-color: rgba(31, 41, 55, 0.5);
+  border-radius: 0.625rem;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  backdrop-filter: blur(1px);
+}
+
+/* Transparent background for light mode error details */
+.light-mode .error-details,
+.light-mode .error-result {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Transparent background for error result */
+.error-result {
+  background-color: rgba(31, 41, 55, 0.5);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-top: 1rem;
+  border: 2px solid var(--border-color);
+  backdrop-filter: blur(1px);
+}
+
+/* Transparent background for error info */
+.error-info {
+  padding: 2rem;
+  background-color: rgba(17, 24, 39, 0.5);
+  border-radius: 0.75rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  border: 2px solid var(--border-color);
+  backdrop-filter: blur(1px);
+}
+
+/* Transparent background for light mode error info */
+.light-mode .error-info {
+  background-color: rgba(241, 245, 249, 0.5);
 }
 
 .content-container {
@@ -97,6 +166,7 @@
 }
 
 .search-container {
+  background: transparent;
   display: flex;
   gap: 1.5rem;
   margin-bottom: 2rem;
@@ -138,6 +208,7 @@
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234ad671' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolygon points='12 2 2 7 12 12 22 7 12 2'%3e%3c/polygon%3e%3cpolyline points='2 17 12 22 22 17'%3e%3c/polyline%3e%3cpolyline points='2 12 12 17 22 12'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
+/* Custom dropdown styling */
 select {
   width: 100%;
   padding: 1rem 1.25rem;
@@ -151,6 +222,61 @@ select {
   appearance: none;
   position: relative;
   transition: border-color 0.2s ease;
+}
+
+/* Add this new CSS for dropdown options */
+select option {
+  padding: 10px;
+}
+
+/* Limit dropdown height and add custom scrollbar */
+select {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--bg-secondary);
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+select::-webkit-scrollbar {
+  width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: var(--text-secondary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-secondary);
+}
+
+/* Add these styles to limit the dropdown height and add scrollbar */
+.search-group select {
+  overflow-y: auto;
+  max-height: 200px; /* Height to show approximately 5 items */
+}
+
+/* Custom scrollbar styling */
+.search-group select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-group select::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.search-group select::-webkit-scrollbar-thumb {
+  background-color: var(--text-secondary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-tertiary);
+}
+
+/* For Firefox */
+.search-group select {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--bg-tertiary);
 }
 
 .search-group::after {
@@ -186,10 +312,16 @@ select:not(:focus):not(:hover) {
 }
 
 .error-details {
-  background-color: var(--bg-secondary);
+  background-color: rgba(31, 41, 55, 0.8); /* Şeffaf arka plan */
   border-radius: 0.625rem;
   overflow: hidden;
   border: 2px solid var(--border-color);
+  backdrop-filter: blur(5px);
+}
+
+.light-mode .error-details,
+.light-mode .error-result {
+  background-color: rgba(255, 255, 255, 0.8); /* Açık tema için şeffaf arka plan */
 }
 
 .error-content {
@@ -197,11 +329,12 @@ select:not(:focus):not(:hover) {
 }
 
 .error-result {
-  background-color: var(--bg-secondary);
+  background-color: rgba(31, 41, 55, 0.8); /* Şeffaf arka plan */
   border-radius: 0.75rem;
   overflow: hidden;
   margin-top: 1rem;
   border: 2px solid var(--border-color);
+  backdrop-filter: blur(5px);
 }
 
 .error-header {
@@ -218,10 +351,15 @@ select:not(:focus):not(:hover) {
 
 .error-info {
   padding: 2rem;
-  background-color: var(--bg-tertiary);
+  background-color: rgba(17, 24, 39, 0.8); /* Şeffaf arka plan */
   border-radius: 0.75rem;
   margin: 0 1.5rem 1.5rem 1.5rem;
   border: 2px solid var(--border-color);
+  backdrop-filter: blur(3px);
+}
+
+.light-mode .error-info {
+  background-color: rgba(241, 245, 249, 0.8); /* Açık tema için şeffaf arka plan */
 }
 
 .error-row {

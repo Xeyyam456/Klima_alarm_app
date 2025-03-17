@@ -15,6 +15,17 @@ export const errorCodesData = [
         description: 'Kompressor temperatur sensoru xətası',
         model: 'Mitsubishi Heavy Industry'
     },
+    // Yeni Mitsubishi Heavy Industry kodları
+    {
+        code: 'E04',
+        description: 'Drenaj pompası xətası',
+        model: 'Mitsubishi Heavy Industry'
+    },
+    {
+        code: 'E05',
+        description: 'Yüksək təzyiq qoruması aktivləşdi',
+        model: 'Mitsubishi Heavy Industry'
+    },
 
     // Mitsubishi Electric
     {
@@ -167,5 +178,56 @@ export const errorCodesData = [
         code: 'EL',
         description: 'İç ünite PCB kommunikasiya xətası',
         model: 'Bosch'
+    }
+    ,
+    // Yeni model: Fujitsu
+    {
+        code: 'EE',
+        description: 'EEPROM xətası',
+        model: 'Fujitsu'
+    },
+    {
+        code: 'E1',
+        description: 'İç/Dış ünite kommunikasiya xətası',
+        model: 'Fujitsu'
+    },
+    {
+        code: 'E2',
+        description: 'İç ünite sensör xətası',
+        model: 'Fujitsu'
+    },
+    
+    // Yeni model: Haier
+    {
+        code: 'E1',
+        description: 'Yüksək təzyiq qoruması',
+        model: 'Haier'
+    },
+    {
+        code: 'E2',
+        description: 'İç ünite anti-donma qoruması',
+        model: 'Haier'
+    },
+    {
+        code: 'E3',
+        description: 'Aşağı təzyiq qoruması',
+        model: 'Haier'
+    },
+    
+    // Yeni model: Midea
+    {
+        code: 'F1',
+        description: 'İç ünite sensör xətası',
+        model: 'Midea'
+    },
+    {
+        code: 'F2',
+        description: 'Evaporator sensör xətası',
+        model: 'Midea'
+    },
+    {
+        code: 'F3',
+        description: 'Xarici mühit temperaturu sensör xətası',
+        model: 'Midea'
     }
 ];

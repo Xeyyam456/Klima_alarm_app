@@ -21,7 +21,10 @@ function App() {
     'Gree',
     'Carrier',
     'Panasonic',
-    'Bosch'
+    'Bosch',
+    'Fujitsu',  // Yeni model
+    'Haier',    // Yeni model
+    'Midea'     // Yeni model
   ];
 
   useEffect(() => {
